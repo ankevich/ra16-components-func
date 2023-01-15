@@ -1,8 +1,10 @@
-import React from 'react';
+import React from "react";
+import PropTypes from "prop-types";
 
 class ShopItemFunc extends React.Component {
   render() {
-    const {brand, title, description, descriptionFull, price, currency} = this.props.item;
+    const { brand, title, description, descriptionFull, price, currency } =
+      this.props.item;
 
     return (
       <div className="main-content">
@@ -25,5 +27,16 @@ class ShopItemFunc extends React.Component {
     );
   }
 }
+
+ShopItemFunc.propTypes = {
+  item: PropTypes.shape({
+    brand: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    descriptionFull: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    currency: PropTypes.string.isRequired,
+  }),
+};
 
 export default ShopItemFunc;
