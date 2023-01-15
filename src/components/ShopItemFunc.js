@@ -1,5 +1,7 @@
-const ShopItemFunc = ({item}) => {
-  const {brand, title, description, descriptionFull, price, currency} = item;
+import PropTypes from "prop-types";
+
+const ShopItemFunc = ({ item }) => {
+  const { brand, title, description, descriptionFull, price, currency } = item;
 
   return (
     <div className="main-content">
@@ -12,11 +14,25 @@ const ShopItemFunc = ({item}) => {
       </div>
       <div className="divider"></div>
       <div className="purchase-info">
-        <div className="price">{currency}{price.toFixed(2)}</div>
+        <div className="price">
+          {currency}
+          {price.toFixed(2)}
+        </div>
         <button>Добавить в корзину</button>
       </div>
     </div>
   );
+};
+
+ShopItemFunc.propTypes = {
+  item: PropTypes.shape({
+    brand: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    descriptionFull: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    currency: PropTypes.string.isRequired,
+  }),
 };
 
 export default ShopItemFunc;
